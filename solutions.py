@@ -26,7 +26,18 @@ def is_square():
 
       :returns: True if square (i.e. if equal length and height), False otherwise.
     """
-    #### write your solution for this function below here. ####
+    height = input('What is the height of the shape in inches? ')
+    length = input ('What is the length of the shape in inches? ')
+    height = int(height)
+    length = int(length) 
+    if height == length:
+        return True
+    elif height!= length:
+            return False
+    else:
+        print('Please enter a number only ')
+        return None
+        
 
 
 def get_greatest():
@@ -37,7 +48,20 @@ def get_greatest():
 
     :returns: the greatest of the two input numbers, as an int.
     """
-    #### write your solution for this function below here. ####
+    number_1= input('Give me a number, any number ')
+    number_2= input('Give me a second number ')
+    if number_1.isnumeric() and number_2.isnumeric():
+        number_1 = int(number_1)
+        number_2 = int(number_2)
+        if number_1>number_2:
+            return number_1
+        elif number_2>number_1:
+            return number_2
+        elif number_1==number_2:
+            return number_1
+    else:
+        print('I asked for numbers... ')
+        return None
 
 
 def get_bmi_category():
@@ -59,7 +83,32 @@ def get_bmi_category():
 
       :returns: The name of the BMI statistical category, based on the inputted height and weight.
     """
-    #### write your solution for this function below here. ####
+    height = input('What is your height in inches? ')
+    weight = input('What is your weight in pounds? ')
+    if height.isnumeric() and weight.isnumeric():
+        height = int(height)
+        weight = int(weight)
+        the_categories = ['Very severely underweight','Severely underweight','Underweight','Normal','Overweight','Moderately obese','Severely obese','Very severely obese']
+        the_bmi = 703 * weight / height ** 2
+        if the_bmi < 15:
+            return the_categories[0]
+        elif 15 <= the_bmi < 16:
+            return the_categories[1]
+        elif 16<= the_bmi < 18.5:
+            return the_categories[2]
+        elif 18.5<= the_bmi < 25:
+            return the_categories[3]
+        elif 25<=the_bmi<30:
+            return the_categories[4]
+        elif 30 <= the_bmi < 35:
+            return the_categories[5]
+        elif 35<= the_bmi<40:
+            return the_categories[6]
+        elif 40<=the_bmi:
+            return the_categories[7]
+    else:
+        return None
+  
 
 
 def get_discount():
@@ -71,7 +120,19 @@ def get_discount():
 
       :returns: The cost of the masks, after any discounts, e.g. "$4,000" for 1000 masks.
     """
-    #### write your solution for this function below here. ####
+    masks = input("How many masks would you like to purchase? ")
+    masks = int(masks)
+    if masks < 5000:
+          masks=(masks*5)
+          price= format(int(masks), ',')
+          return "$" + str(price)
+    elif masks >= 5000:
+          masks_1=(masks*5)
+          masks_2 = masks_1 -(masks_1*.2)
+          price = format(int(masks_2), ',')
+          return "$" + str(price)
+    else:
+        return None
 
 
 def is_leap_year():
@@ -85,3 +146,8 @@ def is_leap_year():
         get_year()
     )  # this line is given to you - the variable, year, holds the current year
     #### write your solution for this function below here. ####
+
+    if int(year)%4 is 0:
+        return True
+    else:
+        return False
